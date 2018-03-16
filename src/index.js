@@ -1,11 +1,13 @@
 // DO WHATEVER YOU WANT HERE
 
 const createEnumerableProperty = () => {};
-const createNotEnumerableProperty = (name = "property", value = "value") => {
-    Object.defineProperty(Object.prototype, name, {get: () => value});
+const createNotEnumerableProperty = (name = "property") => {
+    Object.defineProperty(Object.prototype, name, {
+        get: () => this.value,
+        set: (value) => this.value = value
+    });
     return name
-}
-
+};
 
 const createProtoMagicObject = () => {
     class magicObj {
